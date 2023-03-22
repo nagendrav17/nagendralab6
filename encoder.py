@@ -19,7 +19,7 @@ def encode(user_password):
 
 
 def main():
-    user_option = menu()
+    user_option = menu() # calls the menu and takes user_input
     while user_option != 3:
         if user_option == 1:
             user_password = input("Please enter your password to encode:")
