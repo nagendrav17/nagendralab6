@@ -17,6 +17,13 @@ def encode(user_password):
         encoded_password.append(str(new_n))
     return "".join(encoded_password)
 
+def decode(encoded_password):
+    decoded_res = ''
+    for char in encoded_password:
+        char = int(char)
+        char -= 3
+        decoded_res += str(char)
+    return decoded_res
 
 def main():
     user_option = menu() # calls the menu and takes user_input
@@ -29,12 +36,14 @@ def main():
             print()
 
         if user_option == 2:
-            pass
+            encoded_password = encode(user_password)
+            og_pw = decode(encoded_password)
+            print(f'The encoded password is {encoded_password}, and the original password is {og_pw}. ')
+
         user_option = menu()
     else:
         exit()
 
-main()
 
-# if __name__ == '__main__':
-#     main()
+if __name__ == '__main__':
+     main()
